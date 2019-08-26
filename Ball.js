@@ -13,4 +13,12 @@ function draw() {
   circle (xball,yball, diameter);
   xball += speedxball;
   yball += speedyball;
+  
+  if (xball > width || xball < 0) {
+    speedxball *= -1;
+  }
+  
+  if (yball > height || yball < 0) {
+    speedyball *= -1; 
+  }
 }
