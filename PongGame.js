@@ -9,21 +9,26 @@ let radius = diameter/2;
 let speedyball = 3;
 let speedxball = 3;
 
+//racket variables
+let xracket = 5;
+let yracket = 150;
+let racketWidth = 10;
+let racketHeight = 90;
 
 function setup() {
   createCanvas(600, 400);
 }
 
-function showball(){
+function showBall(){
   circle (xball,yball, diameter);
 }
 
-function moveball(){
+function moveBall(){
   xball += speedxball;
   yball += speedyball;
 }
 
-function verifycollision () {
+function verifyCollision () {
  if (xball + radius > width || xball - radius < 0) {
     speedxball *= -1;
   }
@@ -33,10 +38,14 @@ function verifycollision () {
   }
 }
 
+function showRacket(){
+  rect(xracket,yracket,racketWidth,racketHeight);
+}
 function draw() {
   background(0);
-  showball();
-  moveball();
-  verifycollision ();
+  showBall();
+  moveBall();
+  verifyCollision ();
+  showRacket ();
 }
 
