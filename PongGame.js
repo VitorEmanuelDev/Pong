@@ -47,5 +47,16 @@ function draw() {
   moveBall();
   verifyCollision ();
   showRacket ();
+  racketMovement()
+}
+
+function racketMovement(){
+  if(keyIsDown(UP_ARROW)){
+  yracket -= 10;
+  }
+  if(keyIsDown(DOWN_ARROW)){
+  yracket += 10;
+  }
+  
 }
 
