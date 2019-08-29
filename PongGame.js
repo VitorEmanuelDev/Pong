@@ -1,4 +1,3 @@
-
 //ball size variables
 let xball = 300;
 let yball = 200;
@@ -41,11 +40,18 @@ function verifyCollision () {
 function showRacket(){
   rect(xracket,yracket,racketWidth,racketHeight);
 }
+
+function verifyCollisionWithRacket(){
+  if(xball - radius< xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
+  speedxball *= -1;
+  }  
+}
 function draw() {
   background(0);
   showBall();
   moveBall();
-  verifyCollision ();
+  verifyCollision();
+  verifyCollisionWithRacket();
   showRacket ();
   racketMovement()
 }
@@ -57,6 +63,4 @@ function racketMovement(){
   if(keyIsDown(DOWN_ARROW)){
   yracket += 10;
   }
-  
 }
-
