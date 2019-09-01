@@ -50,22 +50,27 @@ function showRacket(x, y){
 }
 
 
-function verifyCollisionWithRacket(){
-  if(xball - radius < xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
-  speedxball *= -1;
-  }  
+function verifyCollisionWithRacket(x, y) {
+    collision = collideRectCircle(x, y, racketWidth, racketHeight, xball, yball, radius);
+    if (collision){
+        speedxball *= -1;
+    }
 }
+
+
 
 function draw() {
   background(0);
   showBall();
   moveBall();
   verifyCollision();
-  verifyCollisionWithRacket();
+  verifyCollisionWithRacket(xracket, yracket);
+  verifyCollisionWithRacket(xracket2, yracket2);
   showRacket(xracket, yracket);
-  showRacket(xracket2, yracket2);  
+  showRacket(xracket2, yracket2); 
   racketMovement();
   racket2Movement();
+  collideRectCircle();
 }
 
 function racketMovement(){
