@@ -14,6 +14,14 @@ let yracket = 150;
 let racketWidth = 10;
 let racketHeight = 90;
 
+//racket2 variables
+let xracket2 = 585;
+let yracket2 = 150;
+let racket2Width = 10;
+let racket2Height = 90;
+let speedy2;
+
+
 function setup() {
   createCanvas(600, 400);
 }
@@ -37,23 +45,27 @@ function verifyCollision () {
   }
 }
 
-function showRacket(){
-  rect(xracket,yracket,racketWidth,racketHeight);
+function showRacket(x, y){
+  rect(x,y,racketWidth,racketHeight);
 }
 
+
 function verifyCollisionWithRacket(){
-  if(xball - radius< xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
+  if(xball - radius < xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
   speedxball *= -1;
   }  
 }
+
 function draw() {
   background(0);
   showBall();
   moveBall();
   verifyCollision();
   verifyCollisionWithRacket();
-  showRacket ();
-  racketMovement()
+  showRacket(xracket, yracket);
+  showRacket(xracket2, yracket2);  
+  racketMovement();
+  racket2Movement();
 }
 
 function racketMovement(){
@@ -64,3 +76,9 @@ function racketMovement(){
   yracket += 10;
   }
 }
+
+function racket2Movement(){
+  speedy2 = yball - yracket2 - racketHeight /2 - 30;
+  yracket2 += speedy2;
+}
+
