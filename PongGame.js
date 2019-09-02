@@ -47,13 +47,10 @@ function verifyCollision () {
   }
 }
 
-function showRacket(){
-  rect(xracket,yracket,racketWidth,racketHeight);
+function showRacket(x, y){
+  rect(x, y,racketWidth,racketHeight);
 }
 
-function showRacket2(){
-  rect(xracket2,yracket2,racket2Width,racket2Height);
-}
 
 function verifyCollisionWithRacket(){
   if(xball - radius < xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
@@ -66,8 +63,8 @@ function draw() {
   moveBall();
   verifyCollision();
   verifyCollisionWithRacket();
-  showRacket2();
-  showRacket ();
+  showRacket(xracket2, yracket2);
+  showRacket(xracket, yracket);
   racketMovement();
   includeScore();
 }
