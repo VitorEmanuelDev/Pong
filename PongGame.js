@@ -17,8 +17,6 @@ let racketHeight = 90;
 // pc racket variables
 let xracket2= 585;
 let yracket2= 150;
-let racket2Width = 10;
-let racket2Height = 90;
 let speedy2;
 
 
@@ -65,7 +63,8 @@ function draw() {
   showBall();
   moveBall();
   verifyCollision();
-  verifyCollisionWithRacket();
+  verifyCollisionWithRacket(xracket, yracket);
+  verifyCollisionWithRacket(xracket2, yracket2);
   collideRectCircle(xracket, yracket);
   collideRectCircle(xracket2, yracket);
   showRacket(xracket2, yracket2);
@@ -87,7 +86,7 @@ function racketMovement(){
 function movePcRacket(){
   speedy2 = yball - yracket2 - racketWidth / 2 -30;
   
-  yracket2 += speedy2;
+  yracket2 += speedy2
 }
 
 function includeScore(){
