@@ -101,10 +101,10 @@ function includeScore(){
 }
 
 function score(){
-  if(xball > 590){
+  if(xball > 591){
   myPoints +=1;
   }
-  if(xball < 10){
+  if(xball < 9){
   pcPoints += 1;
   }
 }
