@@ -24,6 +24,24 @@ let speedy2;
 let myPoints = 0;
 let pcPoints = 0;
 
+//function blocks
+function draw() {
+  background(0);
+  showBall();
+  moveBall();
+  verifyCollision();
+  verifyCollisionWithRacket(xracket, yracket);
+  verifyCollisionWithRacket(xracket2, yracket2);
+  collideRectCircle(xracket, yracket);
+  collideRectCircle(xracket2, yracket);
+  showRacket(xracket2, yracket2);
+  showRacket(xracket, yracket);
+  racketMovement();
+  includeScore();
+  movePcRacket();
+  score();
+}
+
 function setup() {
   createCanvas(600, 400);
 }
@@ -58,21 +76,7 @@ function verifyCollisionWithRacket(x, y){
   speedxball *= -1;
   }  
 }
-function draw() {
-  background(0);
-  showBall();
-  moveBall();
-  verifyCollision();
-  verifyCollisionWithRacket(xracket, yracket);
-  verifyCollisionWithRacket(xracket2, yracket2);
-  collideRectCircle(xracket, yracket);
-  collideRectCircle(xracket2, yracket);
-  showRacket(xracket2, yracket2);
-  showRacket(xracket, yracket);
-  racketMovement();
-  includeScore();
-  movePcRacket();
-}
+
 
 function racketMovement(){
   if(keyIsDown(UP_ARROW)){
@@ -94,4 +98,13 @@ function includeScore(){
   text(myPoints, 278, 26);
   fill(255);
   text(pcPoints,321, 26);
+}
+
+function score(){
+  if(xball > 590){
+  myPoints +=1;
+  }
+  if(xball < 10){
+  pcPoints += 1;
+  }
 }
