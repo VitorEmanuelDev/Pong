@@ -54,8 +54,9 @@ function showRacket(x, y){
 }
 
 
-function verifyCollisionWithRacket(){
-  if(xball - radius < xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
+function verifyCollisionWithRacket(x, y){
+  collision = collideRectCircle(x, y, racketWidth, racketHeight, xball, yball, radius);
+  if(collision){
   speedxball *= -1;
   }  
 }
@@ -65,6 +66,8 @@ function draw() {
   moveBall();
   verifyCollision();
   verifyCollisionWithRacket();
+  collideRectCircle(xracket, yracket);
+  collideRectCircle(xracket2, yracket);
   showRacket(xracket2, yracket2);
   showRacket(xracket, yracket);
   racketMovement();
