@@ -19,6 +19,8 @@ let xracket2= 585;
 let yracket2= 150;
 let racket2Width = 10;
 let racket2Height = 90;
+let speedy2;
+
 
 //score variables
 let myPoints = 0;
@@ -67,6 +69,7 @@ function draw() {
   showRacket(xracket, yracket);
   racketMovement();
   includeScore();
+  movePcRacket();
 }
 
 function racketMovement(){
@@ -76,6 +79,12 @@ function racketMovement(){
   if(keyIsDown(DOWN_ARROW)){
   yracket += 10;
   }
+}
+
+function movePcRacket(){
+  speedy2 = yball - yracket2 - racketWidth / 2 -30;
+  
+  yracket2 += speedy2;
 }
 
 function includeScore(){
