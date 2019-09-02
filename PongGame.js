@@ -14,6 +14,12 @@ let yracket = 150;
 let racketWidth = 10;
 let racketHeight = 90;
 
+// pc racket variables
+let xracket2= 585;
+let yracket2= 150;
+let racket2Width = 10;
+let racket2Height = 90;
+
 //score variables
 let myPoints = 0;
 let pcPoints = 0;
@@ -45,6 +51,10 @@ function showRacket(){
   rect(xracket,yracket,racketWidth,racketHeight);
 }
 
+function showRacket2(){
+  rect(xracket2,yracket2,racket2Width,racket2Height);
+}
+
 function verifyCollisionWithRacket(){
   if(xball - radius < xracket + racketWidth && yball - radius < yracket + racketHeight && yball + radius > yracket){
   speedxball *= -1;
@@ -56,6 +66,7 @@ function draw() {
   moveBall();
   verifyCollision();
   verifyCollisionWithRacket();
+  showRacket2();
   showRacket ();
   racketMovement();
   includeScore();
