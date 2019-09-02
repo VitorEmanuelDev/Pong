@@ -5,8 +5,8 @@ let diameter = 15;
 let radius = diameter/2;
 
 //ball speed variables
-let speedyball = 3;
-let speedxball = 3;
+let speedyball = 6;
+let speedxball = 6;
 
 //racket variables
 let xracket = 5;
