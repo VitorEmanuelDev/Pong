@@ -14,7 +14,7 @@ let yracket = 150;
 let racketWidth = 10;
 let racketHeight = 90;
 
-// pc racket variables
+//pc racket variables
 let xracket2= 585;
 let yracket2= 150;
 let speedy2;
@@ -24,7 +24,9 @@ let speedy2;
 let myPoints = 0;
 let pcPoints = 0;
 
+
 //function blocks
+
 function draw() {
   background(0);
   showBall();
@@ -94,15 +96,16 @@ function movePcRacket(){
 }
 
 function includeScore(){
+  stroke(255,0,255) 
   textAlign(CENTER);
   textSize(16);
   fill(128,0,128);
   rect(140, 10, 40, 20);
   fill(128,0,128);
   rect(440, 10, 40, 20);
-  fill(0,255,255)
-  text(pcPoints,450, 26);
-  text(myPoints, 150, 26);
+  fill(0,255,255);
+  text(pcPoints,459, 26);
+  text(myPoints, 159, 26);
 }
 
 function score(){
