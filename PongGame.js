@@ -94,10 +94,15 @@ function movePcRacket(){
 }
 
 function includeScore(){
-  fill(255);
-  text(myPoints, 278, 26);
-  fill(255);
-  text(pcPoints,321, 26);
+  textAlign(CENTER);
+  textSize(16);
+  fill(128,0,128);
+  rect(140, 10, 40, 20);
+  fill(128,0,128);
+  rect(440, 10, 40, 20);
+  fill(0,255,255)
+  text(pcPoints,450, 26);
+  text(myPoints, 150, 26);
 }
 
 function score(){
