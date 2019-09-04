@@ -15,7 +15,7 @@ let racketWidth = 10;
 let racketHeight = 90;
 
 //pc racket variables
-let xracket2= 548;
+let xracket2= 585;
 let yracket2= 150;
 let speedy2;
 
@@ -24,8 +24,17 @@ let speedy2;
 let myPoints = 0;
 let pcPoints = 0;
 
+//sound effects
+let point;
+let racket;
+let track;
 
 //function blocks
+function preload(){
+  track = loadSound("track.mp3");
+  racket = loadSound("racket.mp3");
+  point = loadSound("point.mp3")
+}
 
 function draw() {
   background(0);
@@ -46,6 +55,9 @@ function draw() {
 
 function setup() {
   createCanvas(600, 400);
+  track.loop();
+  
+  
 }
 
 function showBall(){
@@ -60,6 +72,7 @@ function moveBall(){
 function verifyCollision () {
  if (xball + radius > width || xball - radius < 0) {
     speedxball *= -1;
+   point.play();
   }
   
   if (yball + radius > height || yball - radius < 0) {
@@ -76,6 +89,7 @@ function verifyCollisionWithRacket(x, y){
   collision = collideRectCircle(x, y, racketWidth, racketHeight, xball, yball, radius);
   if(collision){
   speedxball *= -1;
+   racket.play(); 
   }  
 }
 
