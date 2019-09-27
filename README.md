@@ -1,2 +1,2 @@
-# Pong
+# Pong Alura
 Practice Project 
